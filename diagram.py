@@ -6,12 +6,7 @@ from diagrams.aws.network import CF, APIGateway
 from diagrams.aws.storage import S3
 from diagrams.aws.compute import Lambda
 from diagrams.aws.security import SecretsManager
-from diagrams.aws.ml import (
-    Sagemaker,
-    SagemakerModel,
-    SagemakerNotebook,
-    ElasticInference,
-)
+from diagrams.aws.ml import Sagemaker, SagemakerModel, SagemakerNotebook, ElasticInference
 from diagrams.custom import Custom
 from diagrams.onprem.ci import GithubActions
 from diagrams.generic.device import Mobile
@@ -19,18 +14,18 @@ from diagrams.onprem.vcs import Github
 
 props = dict(fontsize="11", margin="30")
 
-def get_icon(url, filename):
-    try:
-        with open(filename, 'r'):
-            pass
-    except FileNotFoundError:
-        urlretrieve(url, filename)
+icons = {
+    "colab_icon.png": "https://th.bing.com/th/id/OIP.vwkWDhOCtVetzGnJ0p7IAwAAAA?pid=ImgDet&rs=1",
+    "eth_icon.png": "https://th.bing.com/th/id/OIP.Lq7thawo-rrIb9gV7fIZOwHaHx?pid=ImgDet&rs=1",
+    "mongo_icon.png": "https://asset.brandfetch.io/ideyyfT0Lp/idhHZwYUWa.png",
+    "opensea.jpg": "https://asset.brandfetch.io/idxjBvGuV3/idAaTCbE-a.jpeg"
+}
 
-# Use the function to get the icons
-get_icon("https://th.bing.com/th/id/OIP.vwkWDhOCtVetzGnJ0p7IAwAAAA?pid=ImgDet&rs=1", "colab_icon.png")
-get_icon("https://th.bing.com/th/id/OIP.Lq7thawo-rrIb9gV7fIZOwHaHx?pid=ImgDet&rs=1", "eth_icon.png")
-get_icon("https://asset.brandfetch.io/ideyyfT0Lp/idhHZwYUWa.png", "mongo_icon.png")
-get_icon("https://asset.brandfetch.io/idxjBvGuV3/idAaTCbE-a.jpeg", "opensea.jpg")
+for filename, url in icons.items():
+    urlretrieve(url, filename)
+
+def get_icon_key(substring):
+    return next((key for key in icons.keys() if substring in key), None)
 
 with Diagram("mgxs.co", show=False) as diag:
     with Cluster("CloudFlare", graph_attr=dict(bgcolor="honeydew2", **props)) as cf:
@@ -39,11 +34,11 @@ with Diagram("mgxs.co", show=False) as diag:
         flare_embed = Cloudflare("embed.mgxs.co", **props)
         flare_tree = Cloudflare("tree.mgxs.co", **props)
 
-    eth = Custom("Ethereum", eth_icon, **props)
-    mongo = Custom("NFT metadata", mongo_icon, **props)
+    eth = Custom("Ethereum", get_icon_key('eth'), **props)
+    mongo = Custom("NFT metadata", get_icon_key('mongo'), **props)
 
     with Cluster("Google Colab", graph_attr=dict(bgcolor="grey95", **props)):
-        colab = Custom("Train / Testing", colab_icon, **props)
+        colab = Custom("Train / Testing", get_icon_key('colab'), **props)
 
     with Cluster("Code", direction="BT", graph_attr=dict(bgcolor="grey95", **props)):
         gh_repo = Github("Repositories", **props)
@@ -118,7 +113,7 @@ with Diagram("mgxs.co", show=False) as diag:
 
     with Cluster("Internet", graph_attr=dict(bgcolor="grey95", **props)) as internet:
         mobile = Mobile("User", **props)
-        opensea = Custom("NFT metadata", opensea_icon, **props)
+        opensea = Custom("NFT metadata", get_icon_key('opensea'), **props)
 
     mobile >> [flare_mem, flare_tree, flare_embed]
     opensea >> flare_api
