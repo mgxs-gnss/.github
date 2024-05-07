@@ -1,7 +1,0 @@
-{
-  "name": "mgxs.co Static Website CI",
-  "description": "mgxs.co CI Static Website starter workflow.",
-  "iconName": "octicon feed-rocket",
-  "categories": ["React", "npm", "TypeScript"],
-  "filePatterns": ["package.json$", "tsconfig.json"]
-}
