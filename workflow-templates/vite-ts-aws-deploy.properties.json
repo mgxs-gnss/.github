@@ -3,5 +3,5 @@
   "description": "Vite build, npm install, cache dependencies, upload/download artifacts and deploy to AWS S3 and invalidate Cloudfront",
   "iconName": "octicon feed-rocket",
   "categories": ["React", "npm", "vite", "AWS", "TypeScript"],
-  "filePatterns": ["package.json$", "tsconfig.json"],
+  "filePatterns": ["package.json$", "tsconfig.json"]
 }
