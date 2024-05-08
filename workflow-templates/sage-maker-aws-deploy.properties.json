@@ -1,6 +1,6 @@
 {
-  "name": "Deploy Inference to SageMaker",
-  "description": "This workflow deploys a machine learning model to AWS SageMaker.",
+  "name": "Machine Learning Model Deployment to AWS SageMaker",
+  "description": "Automate the deployment of your machine learning models to AWS SageMaker with this workflow, which handles model packaging, S3 upload, and SageMaker endpoint creation for real-time inference.",
   "iconName": "octicon feed-rocket",
   "categories": ["Deployment", "AWS", "Machine Learning", "SageMaker"],
   "filePatterns": ["**/deploy.py"]

@@ -1,4 +1,4 @@
-name: mgxs.co setup + vite build + deploy
+name: Typescript React - Vite build + deploy
 
 on:
   push:
