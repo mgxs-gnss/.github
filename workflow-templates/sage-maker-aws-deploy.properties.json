@@ -1,0 +1,7 @@
+{
+  "name": "Deploy Inference to SageMaker",
+  "description": "This workflow deploys a machine learning model to AWS SageMaker.",
+  "iconName": "aws",
+  "categories": ["Deployment", "AWS", "Machine Learning"],
+  "filePatterns": ["devops/deploy.py"]
+}
