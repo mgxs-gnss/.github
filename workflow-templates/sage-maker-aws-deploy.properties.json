@@ -3,5 +3,5 @@
   "description": "Automate the deployment of your machine learning models to AWS SageMaker with this workflow, which handles model packaging, S3 upload, and SageMaker endpoint creation for real-time inference.",
   "iconName": "octicon feed-rocket",
   "categories": ["Deployment", "Python"],
-  "filePatterns": ["devops/**", "model/**"]
+  "filePatterns": ["^devops/deploy.py$"]
 }
