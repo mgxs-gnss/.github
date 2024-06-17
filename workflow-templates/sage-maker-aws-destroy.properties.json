@@ -2,5 +2,7 @@
   "name": "Destroy SageMaker Inference Endpoint",
   "description": "This workflow handles the deletion of the SageMaker inference endpoint, model, and endpoint configuration.",
   "iconName": "octicon trash",
-  "categories": ["Automation"]
+  "categories": ["Automation"],
+  "filePatterns": ["deploy.py$"],
+  "labels": ["preview"]
 }

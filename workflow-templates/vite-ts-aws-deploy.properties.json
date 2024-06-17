@@ -3,5 +3,6 @@
   "description": "Automates the build process of a React TypeScript application using Vite, manages npm dependencies, caches build artifacts, deploys the build to AWS S3, and performs CloudFront cache invalidation for seamless updates.",
   "iconName": "octicon feed-rocket",
   "categories": ["Continuous integration", "React"],
-  "filePatterns": ["package.json$", "tsconfig.json"]
+  "filePatterns": ["package.json$", "tsconfig.json"],
+  "labels": ["preview"]
 }
