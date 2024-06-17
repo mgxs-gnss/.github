@@ -2,6 +2,6 @@
   "name": "React TypeScript Deployment with Vite to AWS S3 and CloudFront",
   "description": "Automates the build process of a React TypeScript application using Vite, manages npm dependencies, caches build artifacts, deploys the build to AWS S3, and performs CloudFront cache invalidation for seamless updates.",
   "iconName": "octicon feed-rocket",
-  "categories": ["React", "npm", "vite", "AWS", "TypeScript"],
+  "categories": ["Continuous integration", "React"],
   "filePatterns": ["package.json$", "tsconfig.json"]
 }
